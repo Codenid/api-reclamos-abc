@@ -1,10 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from src.api_reclamos.routers import reclamos, catalogos, asignaciones, revisores, evidencias, movimientos
 
 app = FastAPI(
     title="API de Gestión de Reclamos",
     description="API basada en FastAPI para gestionar reclamos, catálogos, evidencias, asignaciones y trazabilidad.",
     version="0.1.0"
+)
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Inclusión de routers por capacidad
