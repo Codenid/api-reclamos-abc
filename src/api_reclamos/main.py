@@ -8,10 +8,12 @@ app = FastAPI(
     version="0.1.0"
 )
 
+origins = ['*'] # Permite que el Api Rest se consuma desde cualquier origen
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permite cualquier origen
-    allow_credentials=False,  # Debe estar en False si usas "*"
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
