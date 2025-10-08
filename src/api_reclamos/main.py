@@ -10,7 +10,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # o lista de dominios permitidos
+    allow_origins=[
+        "http://app-reclamos-abc.s3-website-us-east-1.amazonaws.com"
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
